@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Calculadora de Nota">
+  <meta property="og:description" content="Uma ferramenta online simples para calcular a nota necessária no terceiro trimestre a fim de atingir a média desejada e passar de ano na escola.">
+  <meta property="og:image" content="URL-da-Sua-Imagem.png"> <!-- Substitua pela URL da imagem desejada -->
+  <meta property="og:url" content="URL-do-Seu-Site">
+  <title>Calculadora de Nota</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #282c35;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .calculator-container {
+      background-color: #363b45;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 400px; /* Defina um valor máximo para a largura */
+      width: 100%;
+      margin: 0 auto; /* Centralizar o container */
+    }
+
+    label, input {
+      display: block;
+      margin: 10px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+      color: #333;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator-container">
+    <h1>Calculadora de Nota</h1>
+    
+    <label for="nota1">Nota do Primeiro Trimestre:</label>
+    <input type="number" id="nota1" placeholder="Insira a nota do 1º trimestre" required>
+    
+    <label for="nota2">Nota do Segundo Trimestre:</label>
+    <input type="number" id="nota2" placeholder="Insira a nota do 2º trimestre" required>
+
+    <label for="mediaMinima">Média Mínima Desejada:</label>
+    <input type="number" id="mediaMinima" placeholder="Insira a média mínima desejada" value="65" required>
+
+    <button onclick="calcularNotaMinima()">Calcular Nota Necessária no Terceiro Trimestre</button>
+
+    <p id="resultado"></p>
+     <footer>
+    <p>hamud#3909</p>
+  </footer>
+  </div>
+  <script>
+    function calcularNotaMinima() {
+      // Obter os valores das notas e da média mínima
+      const nota1 = parseFloat(document.getElementById("nota1").value);
+      const nota2 = parseFloat(document.getElementById("nota2").value);
+      const mediaMinima = parseFloat(document.getElementById("mediaMinima").value);
+
+      // Calcular a nota mínima necessária no terceiro trimestre
+      const notaMinimaTerceiro = ((mediaMinima * 6) - (nota1 + (2 * nota2)))/3;
+
+      // Exibir o resultado
+      const resultadoElement = document.getElementById("resultado");
+      resultadoElement.innerHTML = `Nota necessária no terceiro trimestre: ${notaMinimaTerceiro.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
